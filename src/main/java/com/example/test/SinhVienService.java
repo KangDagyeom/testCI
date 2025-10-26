@@ -22,7 +22,7 @@ public class SinhVienService {
         if (sinhVien.getMajor() == null || sinhVien.getMajor().trim().isEmpty() || sinhVien.getMajor().length() < 3) {
             throw new IllegalArgumentException("Chuyên ngành không hợp lệ");
         }
-        if (sinhVien.getName().isEmpty() || sinhVien.getName() == null) {
+        if (sinhVien.getName() == null || sinhVien.getName().isEmpty()) {
             throw new IllegalArgumentException("Ten khong duoc rong hoac null");
         }
         if (sinhVien.getAge() < 18 || sinhVien.getAge() > 60) {
