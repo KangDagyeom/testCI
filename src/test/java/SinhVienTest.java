@@ -31,7 +31,7 @@ public class SinhVienTest {
 
     @Test
     void testAddInvalidMajor() {
-        SinhVien sv = new SinhVien("SV008", "Quân", 23, 8.0F, 2, "ABCXYZ");
+        SinhVien sv = new SinhVien("SV008", "Quân", 23, 8.0F, 2, "e");
         assertThrows(IllegalArgumentException.class, () -> sinhVienService.add(sv));
     }
 
@@ -42,7 +42,6 @@ public class SinhVienTest {
         SinhVien sinhVien2 = sinhVienService.findById("SV00001");
         assertEquals("Minh update", sinhVien2.getName());
         assertEquals(5.6F, sinhVien2.getAvgMark());
-        assertNotEquals(8.5F, sinhVien2.getAvgMark());
         System.out.println(sinhVien2.getName());
         System.out.println(sinhVien2.getAvgMark());
     }

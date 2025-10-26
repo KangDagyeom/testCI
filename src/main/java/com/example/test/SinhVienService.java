@@ -17,7 +17,10 @@ public class SinhVienService {
 
         }
         if (sinhVien.getId() == null || sinhVien.getId().isEmpty()) {
-
+            throw new IllegalArgumentException("ID khong duoc null");
+        }
+        if (sinhVien.getMajor() == null || sinhVien.getMajor().trim().isEmpty() || sinhVien.getMajor().length() < 3) {
+            throw new IllegalArgumentException("Chuyên ngành không hợp lệ");
         }
         list.add(sinhVien);
     }

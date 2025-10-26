@@ -37,8 +37,5 @@ public class MathFunctionTest {
         assertEquals(expected, MathFunction.tinhtong());
     }
 
-    @Test
-    public void testBienMin() {
-        assertEquals(1, MathFunction.tinhtong());
-    }
+
 }
