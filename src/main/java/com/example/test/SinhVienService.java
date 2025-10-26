@@ -22,6 +22,15 @@ public class SinhVienService {
         if (sinhVien.getMajor() == null || sinhVien.getMajor().trim().isEmpty() || sinhVien.getMajor().length() < 3) {
             throw new IllegalArgumentException("Chuyên ngành không hợp lệ");
         }
+        if (sinhVien.getName().isEmpty() || sinhVien.getName() == null) {
+            throw new IllegalArgumentException("Ten khong duoc rong hoac null");
+        }
+        if (sinhVien.getAge() < 18 || sinhVien.getAge() > 60) {
+            throw new IllegalArgumentException("Tuoi khong duoc be hon 18 va lon hon 60");
+        }
+        if (sinhVien.getAvgMark() < 0 || sinhVien.getAvgMark() > 10) {
+            throw new IllegalArgumentException("Diem khong duoc am hoac lon hon 10");
+        }
         list.add(sinhVien);
     }
 

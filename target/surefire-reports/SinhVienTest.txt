@@ -1,4 +1,12 @@
 -------------------------------------------------------------------------------
 Test set: SinhVienTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.044 s -- in SinhVienTest
+Tests run: 4, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.065 s <<< FAILURE! -- in SinhVienTest
+SinhVienTest.addTrungID -- Time elapsed: 0.006 s <<< ERROR!
+java.lang.IllegalArgumentException: ID khong duoc null
+	at com.example.test.SinhVienService.add(SinhVienService.java:20)
+	at SinhVienTest.addTrungID(SinhVienTest.java:32)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+

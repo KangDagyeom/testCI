@@ -1,11 +1,9 @@
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -27,6 +25,62 @@ public class SinhVienTest {
         List<SinhVien> sinhViens = sinhVienService.getAll();
         assertTrue(sinhViens.contains(sinhVien), "Danh sach sinh vien vua them 1 sinh vien moi !");
         System.out.println("Danh sv da duoc them 1 sinh vien");
+    }
+
+    @Test
+    void addIDRong() {
+        SinhVien sinhVien = new SinhVien("", "Duy", 23, 4.5F, 3, "CNTT");
+        sinhVienService.add(sinhVien);
+        assertThrows(IllegalArgumentException.class, () -> sinhVienService.add(sinhVien));
+    }
+
+    @Test
+    void addIDNull() {
+        SinhVien sinhVien = new SinhVien(null, "Duy", 23, 4.5F, 3, "CNTT");
+        sinhVienService.add(sinhVien);
+        assertThrows(IllegalArgumentException.class, () -> sinhVienService.add(sinhVien));
+    }
+
+    @Test
+    void addNameNull() {
+        SinhVien sinhVien = new SinhVien("TH002", null, 23, 4.5F, 3, "CNTT");
+        sinhVienService.add(sinhVien);
+        assertThrows(IllegalArgumentException.class, () -> sinhVienService.add(sinhVien));
+    }
+
+    @Test
+    void addNameRong() {
+        SinhVien sinhVien = new SinhVien("TH002", "", 23, 4.5F, 3, "CNTT");
+        sinhVienService.add(sinhVien);
+        assertThrows(IllegalArgumentException.class, () -> sinhVienService.add(sinhVien));
+    }
+
+    @Test
+    void addTuoiAm() {
+        SinhVien sinhVien = new SinhVien("TH002", "Duy Hung", -1, 4.5F, 3, "CNTT");
+        sinhVienService.add(sinhVien);
+        assertThrows(IllegalArgumentException.class, () -> sinhVienService.add(sinhVien));
+    }
+
+    @Test
+    void addTuoiQuaLon() {
+        SinhVien sinhVien = new SinhVien("TH002", "Duy Hung", 61, 4.5F, 3, "CNTT");
+        sinhVienService.add(sinhVien);
+        assertThrows(IllegalArgumentException.class, () -> sinhVienService.add(sinhVien));
+    }
+
+    @Test
+    void addDiemBeHon0() {
+        SinhVien sinhVien = new SinhVien("TH002", "Duy Hung", 23, -4.5F, 3, "CNTT");
+        sinhVienService.add(sinhVien);
+        assertThrows(IllegalArgumentException.class, () -> sinhVienService.add(sinhVien));
+    }
+
+    @Test
+    void addDiemLonHonMax() {
+        SinhVien sinhVien = new SinhVien("TH002", "Duy Hung", 25, 11.5F, 3, "CNTT");
+        sinhVienService.add(sinhVien);
+        assertThrows(IllegalArgumentException.class, () -> sinhVienService.add(sinhVien));
     }
 
     @Test
